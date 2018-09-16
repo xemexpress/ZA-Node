@@ -201,12 +201,7 @@ router.put('/shallowproperty', auth.required, (req, res, next) => {
 // Testing Purpose
 router.get('/test', auth.required, (req, res, next) => {
   if(req.payload.username === auth.admin){
-    Company.find({ author: req.payload.id }).then(companies => {
-      companies.forEach(company => {
-        company.tagList.push('持有')
-        company.save()
-      })
-    }).catch(next)
+    
   }else{
     return res.sendStatus(403)
   }
